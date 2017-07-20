@@ -6,13 +6,15 @@
   
     <title>Internal Error</title>
     
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="static/styles.css" />
     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script type="text/javascript" src="scripts.js"></script>
+    <script type="text/javascript" src="static/scripts.js"></script>
     
     <meta name="description" content="<?php echo $blurbs["readme"]->body; ?>" />
     <meta name="keywords" content="internal,error,band,music,rock,seattle" />
+    
+    <?php ga("UA-102875976-1"); ?>
   
   </head>
   
@@ -23,7 +25,7 @@
 <?php
 
       foreach ($backgrounds as $b => $name) {
-        $style = "background: url(images/" . $name . ".jpg) no-repeat;";
+        $style = "background: url('images/backgrounds/" . $name . ".jpg') no-repeat;";
         if ($b > 1) $style .= " display: none;";
         
 ?>

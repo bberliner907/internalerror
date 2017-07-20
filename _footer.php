@@ -16,7 +16,7 @@
             <a href="<?php echo $row->link; ?>" 
               title="<?php echo $row->name; ?>" 
               target="_blank">
-              <img src="icons/<?php echo $row->icon; ?>" 
+              <img src="images/icons/<?php echo $row->icon; ?>" 
                 style="border-radius:4px;" /></a>
 
 <?php

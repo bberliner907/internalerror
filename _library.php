@@ -1,4 +1,8 @@
 
+<?php include("../_auth.php"); ?>
+
+<?php include("_library/_ga.php"); ?>
+
 <?php
 
 auth("internalerror");
@@ -28,12 +32,8 @@ while ($row = mysql_fetch_object($result)) {
   $blurbs[$row->name] = $row;
 }
 
-function show_blurb($name) {
-  global $blurbs;
-
-  if ($blurbs[$name]->title) echo "<h3>" . $blurbs[$name]->title . "</h3>";
-  if ($blurbs[$name]->body) echo '<p class="blurb">' . $blurbs[$name]->body . '</p>';
-
-}
-
 ?>
+
+<?php include("_library/_blurb.php"); ?>
+
+<?php include("_library/_album.php"); ?>

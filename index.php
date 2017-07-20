@@ -1,6 +1,4 @@
 
-<?php include("../_auth.php"); ?>
-
 <?php include("_library.php"); ?>
 <?php include("_header.php"); ?>
 
