@@ -1,6 +1,7 @@
 
-<?php include("_library.php"); ?>
-<?php include("_header.php"); ?>
+<?php include("_shell/_main.php"); ?>
+
+<?php include("_shell/_header.php"); ?>
 
 <?php
 
@@ -26,4 +27,4 @@ foreach ($pages as $page => $title) {
 
 ?>
 
-<?php include("_footer.php"); ?>
+<?php include("_shell/_footer.php"); ?>
