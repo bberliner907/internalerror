@@ -6,10 +6,7 @@
         
 <?php
 
-          $sql = "SELECT * FROM links ORDER BY id";
-          $result = mysql_query($sql, $mysql_link);
-
-          while ($row = mysql_fetch_object($result)) {
+          foreach ($links as $l => $row) {
               
 ?>
     
@@ -17,7 +14,7 @@
               title="<?php echo $row->name; ?>" 
               target="_blank">
               <img src="images/icons/<?php echo $row->icon; ?>" 
-                style="border-radius:4px;" /></a>
+                style="border-radius: 4px;" /></a>
 
 <?php
 
@@ -30,15 +27,8 @@
 
     </div>
     
-<?php
-
-      $date = date_create();
-      $formatted = date_format($date, "Y");
-    
-?>
-    
     <div id="footer">
-      &copy; <?php echo $formatted; ?> Internal Error
+      &copy; <?php echo date_text("Y"); ?> Internal Error
     </div>
 
   </body>

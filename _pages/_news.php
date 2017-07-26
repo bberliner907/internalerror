@@ -3,27 +3,20 @@
 
 if ($mysql_link) {
 
-  $sql = "SELECT * FROM news ORDER BY date DESC";
-  $result = mysql_query($sql, $mysql_link);
+  $result = query("SELECT * FROM news ORDER BY date DESC");
 
-  while ($row = mysql_fetch_object($result)) {
+  while ($row = query_next($result)) {
 
-  ?>
+?>
 
     <div class="post">
       <h3 class="blog">
-    
-  <?php
-
-        $date = date_create($row->date);
-        echo date_format($date, 'M d, Y');
-
-  ?>
-
+        <?php echo date_text('M d, Y', $row->date); ?>
       </h3>
       <span class="smallcaps subheader">
         <?php echo $row->headline; ?>
       </span>
+      
       <div class="postline">
         <div class="prompt"><p>&gt;</p></div>
         <div class="body">
@@ -34,7 +27,7 @@ if ($mysql_link) {
       </div>
     </div>
 
-  <?php
+<?php
 
   }
 

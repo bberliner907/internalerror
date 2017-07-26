@@ -3,12 +3,11 @@
 
 if ($mysql_link) {
 
-  $sql = "SELECT * FROM videos ORDER BY date DESC, tag, id";
-  $result = mysql_query($sql, $mysql_link);
-
   $videos = array();
+  
+  $result = query("SELECT * FROM videos ORDER BY date DESC, tag, id");
 
-  while ($row = mysql_fetch_object($result)) {
+  while ($row = query_next($result)) {
     $videos[count($videos)] = $row;
   }
 
@@ -21,8 +20,6 @@ if ($mysql_link) {
     $row = $videos[$v];
   
     if ($v == 0 || !$row->tag || $row->tag != $prev) {
-      $date = date_create($row->date);
-      $formatted = date_format($date, 'M Y');
   
 ?>
 
@@ -30,8 +27,11 @@ if ($mysql_link) {
       <span class="subheader">
         <span class="smallcaps"><?php echo $row->location; ?></span>
         <span class="divider">|</span>
-        <small style="text-transform: uppercase;"><?php echo $formatted; ?></small>
+        <small style="text-transform: uppercase;">
+          <?php echo date_text('M Y', $row->date); ?>
+        </small>
       </span>
+      
       <div class="video">
 
 <?php

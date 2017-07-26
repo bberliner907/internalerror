@@ -13,16 +13,16 @@ if ($mysql_link) {
   
 <?php
 
-      $sql = "SELECT * FROM shows WHERE date < NOW() ORDER BY date DESC";
-      $result = mysql_query($sql, $mysql_link);
+      $result = query("SELECT * FROM shows WHERE date < NOW() ORDER BY date DESC");
 
-      while ($row = mysql_fetch_object($result)) {
-        $date = date_create($row->date);
+      while ($row = query_next($result)) {
       
 ?>
 
         <p>
-          <small style="text-transform: uppercase;"><?php echo date_format($date, "M d, Y"); ?></small>
+          <small style="text-transform: uppercase;">
+            <?php echo date_text("M d, Y", $row->date); ?>
+          </small>
           <span class="divider">|</span>
           <?php echo $row->location; ?>
         </p>
@@ -40,12 +40,10 @@ if ($mysql_link) {
   
 <?php
 
-    $sql = "SELECT * FROM shows WHERE date >= NOW() ORDER BY date DESC";
-    $result = mysql_query($sql, $mysql_link);
+    $result = query("SELECT * FROM shows WHERE date >= NOW() ORDER BY date DESC");
 
-    if (mysql_num_rows($result)) {
-      while ($row = mysql_fetch_object($result)) {
-        $date = date_create($row->date);
+    if (query_rows($result)) {
+      while ($row = query_next($result)) {
     
 ?>
 
@@ -55,7 +53,7 @@ if ($mysql_link) {
         
 <?php
 
-            $formatted = date_format($date, "M d");
+            $formatted = date_text("M d", $row->date);
             if ($row->link) {
               echo '<a href="' . $row->link . '" target="_blank">' . $formatted .'</a>';
             } else echo $formatted;

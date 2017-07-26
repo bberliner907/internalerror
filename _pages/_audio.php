@@ -3,13 +3,11 @@
 
 if ($mysql_link) {
 
-  $sql = "SELECT * FROM albums ORDER BY position, date DESC";
-  $result = mysql_query($sql, $mysql_link);
+  $result = query("SELECT * FROM albums ORDER BY position, date DESC");
 
   $split = 0;
-  while ($row = mysql_fetch_object($result)) {
-    $date = date_create($row->date);
-    $row->formatted = date_format($date, "M Y");
+  while ($row = query_next($result)) {
+    $row->formatted = date_text("M Y", $row->date);
 
     if ($row->type == "LP") {
       $split = 0;

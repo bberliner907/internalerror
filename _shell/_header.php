@@ -8,7 +8,7 @@
     
     <link rel="stylesheet" type="text/css" href="static/styles.css" />
     
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="static/scripts.js"></script>
     
     <meta name="description" content="<?php echo $blurbs["readme"]->body; ?>" />
@@ -41,29 +41,5 @@
       <a href="http://www.internalerror.org" onclick="return showPage('home');" id="homelink">
         <img src="images/internalerror.png" alt="Internal Error" id="logo" />
       </a>
-  
-      <div class="infobox" id="navbox">
-        <div id="menu">
-        
-<?php
-          
-          $i = 0;
-          foreach ($pages as $page => $title) {
-            $i++;
-  
-?>
 
-            <a href="#" onclick="return showPage('<?php echo $page; ?>');" id="<?php echo $page; ?>Nav"><?php echo $title; ?></a>
-          
-<?php
-
-            if ($i < count($pages)) {
-              echo '<span class="divider">|</span>';
-            }
-          }
-          
-?>
-          
-        </div>
-      </div>
-      
+      <?php include("_shell/_nav.php"); ?>
