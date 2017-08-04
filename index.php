@@ -6,13 +6,14 @@
 <?php
 
 foreach ($pages as $page => $title) {
+  $style = (page_active($page)) ? "display: block;" : "display: none;";
 
 ?>
 
-  <div class="page" id="<?php echo $page; ?>Page" style="display: none;">
+  <div class="page" id="<?php echo $page; ?>" style="<?php echo $style; ?>">
     <h2>
       <?php echo $title; ?>
-      <a class="close" href="#" onclick="return showPage('home');">&times;</a>
+      <a class="close" href="/" onclick="return showPage('home');">&times;</a>
     </h2>
     <div class="content">
   

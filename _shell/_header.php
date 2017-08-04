@@ -6,10 +6,10 @@
   
     <title>Internal Error</title>
     
-    <link rel="stylesheet" type="text/css" href="static/styles.css" />
+    <link rel="stylesheet" type="text/css" href="static/styles.css?<?php echo $assets; ?>" />
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="static/scripts.js"></script>
+    <script type="text/javascript" src="static/scripts.js?<?php echo $assets; ?>"></script>
     
     <meta name="description" content="<?php echo $blurbs["readme"]->body; ?>" />
     <meta name="keywords" content="internal,error,band,music,rock,seattle" />
@@ -43,3 +43,5 @@
       </a>
 
       <?php include("_shell/_nav.php"); ?>
+      
+      <div class="pages">

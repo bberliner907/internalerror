@@ -1,7 +1,11 @@
 
-      <div class="infobox" id="bottombox">
-        <!-- MAY CAUSE AUDITORY DELIRIUM. -->
+      </div>
+      
+      <div class="infobox" 
+        id="bottombox"
+        style="<?php if (page_param()) { echo "display: none;"; } ?>">
         
+        <!-- MAY CAUSE AUDITORY DELIRIUM. -->
         <span id="social">
         
 <?php

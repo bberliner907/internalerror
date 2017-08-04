@@ -7,10 +7,15 @@
     $i = 0;
     foreach ($pages as $page => $title) {
       $i++;
+      
+      $pageClass = (page_active($page)) ? "active" : "";
 
 ?>
 
-      <a href="#" onclick="return showPage('<?php echo $page; ?>');" id="<?php echo $page; ?>Nav"><?php echo $title; ?></a>
+      <a href="?page=<?php echo $page; ?>" 
+      	onclick="return showPage('<?php echo $page; ?>');" 
+      	id="<?php echo $page; ?>Nav"
+      	class="<?php echo $pageClass; ?>"><?php echo $title; ?></a>
     
 <?php
 

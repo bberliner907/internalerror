@@ -20,7 +20,11 @@ function show_album($entry) {
 
 }
 
+?>
 
+
+
+<?php
 
 function show_album_info($entry) {
   
