@@ -54,11 +54,6 @@ a:hover,
 
 #logo, 
 a:hover #logo {
-  /* box-shadow: 0px 0px 500px #cdecde; */
-  /*
-  border: 1px solid #112112;
-  margin: 40px auto 15px;
-  */
   padding: 15px 226px;
   margin: 20px auto 0;
   background-color: #000;
@@ -99,18 +94,6 @@ a:hover #logo {
   letter-spacing: 2px;
   padding: 10px 12px 12px;
 }
-/*
-#navbox #about {
-  float: left;
-  text-align: left;
-  width: 160px;
-  padding: 0 10px;
-}
-#navbox #about a {
-  text-decoration: none;
-  padding: 2px 3px 2px 5px;
-}
-*/
 #navbox #menu a {
   color: #eefeef;
   text-decoration: none;
@@ -118,27 +101,12 @@ a:hover #logo {
   padding: 2px 2px 2px 5px;
   text-transform: uppercase;
 }
-/*
-#navbox #social {
-  float: right;
-  width: 180px;
-  padding: 2px 5px 0 15px;
-}
-#navbox #social a {
-  padding: 4px 4px 2px;
-}
-*/
 
 #bottombox {
   letter-spacing: 2px;
   font-size: 12px;
   margin-top: 494px;
   padding: 14px 12px 6px;
-  /*
-  position: relative;
-  top: 490px;
-  margin-bottom: 515px;
-  */
 }
 #bottombox a:hover {
   padding-top: 8px;
@@ -152,7 +120,6 @@ a:hover #logo {
   text-align: left;
   font-family: verdana;
 }
-
 .page h2 {
   background-color: #000;
   padding: 15px 20px;
@@ -163,7 +130,6 @@ a:hover #logo {
   font-weight: normal;
   text-transform: uppercase;
 }
-
 .page .close {
   float: right;
   color: #eefeef;
@@ -207,6 +173,7 @@ a:hover #logo {
 .page .content p.blurb {
   padding-bottom: 15px;
 }
+
 .page .content .shows {
   font-variant: small-caps;
   font-size: 1.1em;
@@ -216,6 +183,7 @@ a:hover #logo {
   padding: 2px 5px;
   line-height: 1.5em;
 }
+
 .page .content h3 {
   padding: 10px;
   letter-spacing: 2px;
@@ -226,9 +194,11 @@ a:hover #logo {
   font-size: 18px;
   text-transform: uppercase;
 }
+
 .page .content h3.blog {
   font-size: 0.9em;
 }
+
 .page .content .subheader {
   margin-left: 10px;
   font-size: 16.5px;
@@ -258,23 +228,71 @@ a:hover #logo {
 .page .content .body p {
   line-height: 1.4em;
 }
+
 .page .content .album {
   float: left;
+  border: 0;
   width: 350px;
   height: 350px;
   margin-top: 10px;
-  border: 0;
-  margin-top: 10px;
+  margin-bottom: 20px;
 }
+
 .page .content iframe.bandcamp {
   border: 0;
   width: 350px;
-  height: 621px;
-  padding-bottom: 5px;
+  height: 235px;
+  margin-bottom: 20px;
 }
 .page .content iframe.youtube {
   border: 0;
   margin: 10px 5px; 20px 0;
+}
+
+#results {
+  width: 62%;
+}
+
+#songs {
+  width: 34%;
+}
+#songs ul {
+  list-style: none;
+  padding-left: 0;
+  padding-top: 5px;
+  margin-top: 0;
+}
+#songs ul > li {
+  font-weight: bold;
+}
+#songs ul .toggle {
+  float: left;
+  margin-right: 20px;
+  margin-top: 10px;
+  display: block;
+  width: 15px;
+  text-align: center;
+}
+#songs ul .subheader {
+  padding-left: 0;
+  margin-left: 0;
+  margin-bottom: 20px;
+  display: block;
+}
+#songs ul .subheader small {
+  text-transform: uppercase;
+  font-weight: normal;
+}
+#songs ul .divider {
+  padding: 0 5px;
+}
+#songs ol {
+  margin: 0 0 20px 5px;
+  display: none;
+}
+#songs ol li,
+#songs ol a {
+  font-weight: normal;
 }
 
 #footer {

@@ -2,6 +2,23 @@
 var interval;
 var qs = "?page=";
 
+function ajax(action, record) {
+  action = action.replace(/(\'|\"|\W)/g, "");
+  record = record.replace(/\D/g, "");
+  if (action && record) {
+    var data = { "action": action, "record": record };
+    $("#results").load("ajax.php", data, function() {
+      $("#results").parents(".content").scrollTop(0);
+    });
+  }
+}
+
+function expose(elem) {
+  $(elem).parents('.wrapper').children('.expose').fadeToggle(250);
+  var icon = $(elem).parents('.wrapper').find('.toggle a');
+  $(icon).html(($(icon).html() == "+") ? "-" : "+");
+}
+
 function showPage(page, pop) {
   $("#navbox a").removeClass("active");
   $("div.page").hide();
@@ -12,15 +29,6 @@ function showPage(page, pop) {
     }
     $(".background").removeClass("inactive");
     $("#bottombox").fadeIn("fast");
-    /*
-    $("div.page").fadeOut("fast", function() {
-      setTimeout(function() {
-        $("#bottombox").fadeIn("fast", function() {
-          //$("body").css("overflow", "auto");
-        });
-      }, 50);
-    });
-    */
   } else if ($("div.page#" + page).css("display") == "none") {
     if (!pop) {
       history.pushState(null, null, qs + page);
@@ -30,8 +38,12 @@ function showPage(page, pop) {
       $("div.page#" + page).fadeIn("fast");
       $("#navbox a#" + page + "Nav").addClass("active");
       $(".background").addClass("inactive");
+      if (page == "audio") {
+        $("div.page#audio iframe.bandcamp").each(function() {
+          $(this).attr("src", $(this).attr("data-src"));
+        });
+      }
     };
-    if ($("#bottombox").css("display") == "none") openPage();
     $("#bottombox").fadeOut("fast", openPage);
   }
   return false;

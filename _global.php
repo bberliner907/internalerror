@@ -10,7 +10,7 @@
 
 auth("internalerror");
 
-$assets = "2017-08-03-01";
+$assets = "2017-08-05-01";
 
 $backgrounds = array();
 $pages = array();
@@ -44,4 +44,3 @@ while ($row = query_next($result)) {
 ?>
 
 <?php include("_library/_blurb.php"); ?>
-<?php include("_library/_album.php"); ?>
