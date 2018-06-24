@@ -49,6 +49,18 @@ function showPage(page, pop) {
   return false;
 }
 
+function expand(to) {
+  var chosen = $("img[name=" + to + "].album").attr("src").replace("thumbs", "full");
+  $("#zoom").children("img").attr("src", "").attr("src", chosen).parent().fadeIn(250);
+  $("body").css("overflow", "hidden");
+}
+
+function collapse() {
+  $('#zoom').toggle();
+  $('body').css('overflow', 'auto');
+  $(document).scrollTop(0);
+}
+
 $(window).on('popstate', function(e) {
   var index = location.search.lastIndexOf(qs);
   var to;

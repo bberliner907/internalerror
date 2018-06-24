@@ -20,9 +20,10 @@ if ($mysql_link) {
         <span class="divider">|</span>
         <small style="text-transform: uppercase;"><?php echo $row->formatted; ?></small>
       </span>
-      <img src="images/albums/<?php echo $row->key; ?>.png" 
+      <a href="#" onclick="expand('<?php echo $row->key; ?>'); return false;"><img src="images/albums/thumbs/<?php echo $row->key; ?>.png" 
+      	name="<?php echo $row->key; ?>"
         alt="<?php echo $row->title; ?>" 
-        class="album" />
+        class="album" /></a>
         
     </div>
     
