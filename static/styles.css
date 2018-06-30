@@ -62,6 +62,9 @@ a:hover,
 #zoom #close a {
   color: #fff;
   text-decoration: none !important;
+  position: fixed;
+  right: 40px;
+
 }
 #zoom img {
   margin: 0 auto;
@@ -319,6 +322,10 @@ a:hover #logo {
 #songs ol li,
 #songs ol a {
   font-weight: normal;
+}
+
+.post .photos .photo {
+  max-width: 150px;
 }
 
 #footer {

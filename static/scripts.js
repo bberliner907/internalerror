@@ -50,15 +50,14 @@ function showPage(page, pop) {
 }
 
 function expand(to) {
-  var chosen = $("img[name=" + to + "].album").attr("src").replace("thumbs", "full");
+  var chosen = $("img[name='" + to + "']").attr("src").replace("thumbs", "full");
   $("#zoom").children("img").attr("src", "").attr("src", chosen).parent().fadeIn(250);
   $("body").css("overflow", "hidden");
 }
 
 function collapse() {
-  $('#zoom').toggle();
+  $('#zoom').scrollTop(0).toggle();
   $('body').css('overflow', 'auto');
-  $(document).scrollTop(0);
 }
 
 $(window).on('popstate', function(e) {

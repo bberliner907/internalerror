@@ -10,20 +10,20 @@
 
 auth("internalerror");
 
-$assets = "2018-06-23-02";
+$assets = "2018-06-28-01";
 
 $backgrounds = array();
 $pages = array();
 $blurbs = array();
 $links = array();
 
-$result = query("SELECT * FROM photos ORDER BY id");
+$result = query("SELECT * FROM backgrounds ORDER BY position");
 
 while ($row = query_next($result)) {
   $backgrounds[$row->id] = $row->name;
 }
 
-$result = query("SELECT * FROM pages ORDER BY id");
+$result = query("SELECT * FROM pages ORDER BY position");
 
 while ($row = query_next($result)) {
   $pages[$row->page] = $row->title;
@@ -35,7 +35,7 @@ while ($row = query_next($result)) {
   $blurbs[$row->name] = $row;
 }
 
-$result = query("SELECT * FROM links ORDER BY id");
+$result = query("SELECT * FROM links ORDER BY position");
 
 while ($row = query_next($result)) {
   $links[$row->id] = $row;
