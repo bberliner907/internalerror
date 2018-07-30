@@ -1,6 +1,7 @@
 
 var interval;
 var qs = "?page=";
+var first = (location.search.indexOf(qs.replace("?", "") + "audio") != -1) ? false : true;
 
 function ajax(action, record) {
   action = action.replace(/(\'|\"|\W)/g, "");
@@ -19,7 +20,11 @@ function expose(elem) {
   $(icon).html(($(icon).html() == "+") ? "-" : "+");
 }
 
-function showPage(page, pop) {
+function showPage(path, pop) {
+  var paths = path.split("#");
+  page = paths[0];
+  var element;
+  if (paths.length > 1) element = paths[1];
   $("#navbox a").removeClass("active");
   $("div.page").hide();
   if (page == "home") {
@@ -35,18 +40,32 @@ function showPage(page, pop) {
       ga('send', 'pageview', location.pathname + location.search);
     }
     var openPage = function() {
-      $("div.page#" + page).fadeIn("fast");
+      $("div.page#" + page).fadeIn("fast", function() {
+        if (element) scrollTo(element);
+      });
       $("#navbox a#" + page + "Nav").addClass("active");
       $(".background").addClass("inactive");
-      if (page == "audio") {
+      if (page == "audio" && first) {
         $("div.page#audio iframe.bandcamp").each(function() {
-          $(this).attr("src", $(this).attr("data-src"));
+          $(this).on('load', function() {
+            history.replaceState(null, null, qs + "audio");
+          }).attr("src", $(this).attr("data-src"));
         });
+        first = false;
       }
     };
     $("#bottombox").fadeOut("fast", openPage);
   }
   return false;
+}
+
+function scrollTo(id) {
+  var element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView();
+    var body = document.getElementsByTagName("body")[0];
+    if (body) body.scrollIntoView();
+  }
 }
 
 function expand(to) {
@@ -65,6 +84,7 @@ $(window).on('popstate', function(e) {
   var to;
   if (index == -1) to = "home";
   else to = location.search.substr(index + qs.length, location.search.length);
+  if (location.hash) to += "#" + location.hash;
   showPage(to, true);
 });
 

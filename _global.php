@@ -10,7 +10,7 @@
 
 auth("internalerror");
 
-$assets = "2018-06-28-01";
+$assets = "2018-07-29-05";
 
 $backgrounds = array();
 $pages = array();

@@ -12,34 +12,36 @@ if ($mysql_link) {
   
 ?>
 
-    <div class="contentleft">
+    <div class="release">
+      <div class="contentleft" id="<?php echo $row->key; ?>">
     
-      <h3><?php echo $row->type; ?></h3>
-      <span class="subheader">
-        <span class="smallcaps">"<?php echo $row->title; ?>"</span>
-        <span class="divider">|</span>
-        <small style="text-transform: uppercase;"><?php echo $row->formatted; ?></small>
-      </span>
-      <a href="#" onclick="expand('<?php echo $row->key; ?>'); return false;">
-        <img src="images/albums/thumbs/<?php echo $row->key; ?>.png" 
-          name="<?php echo $row->key; ?>"
-          alt="<?php echo $row->title; ?>" 
-          class="album" /></a>
+        <h3><?php echo $row->type; ?></h3>
+        <span class="subheader">
+          <span class="smallcaps">"<?php echo $row->title; ?>"</span>
+          <span class="divider">|</span>
+          <small style="text-transform: uppercase;"><?php echo $row->formatted; ?></small>
+        </span>
+        <a href="#" onclick="expand('<?php echo $row->key; ?>'); return false;">
+          <img src="images/albums/thumbs/<?php echo $row->key; ?>.png" 
+            name="<?php echo $row->key; ?>"
+            alt="<?php echo $row->title; ?>" 
+            class="album" /></a>
         
-    </div>
+      </div>
     
-    <div class="contentright" style="margin-top: 88px;">
+      <div class="contentright" style="margin-top: 88px;">
       
-      <iframe class="bandcamp"
-        src="<?php echo $bc; ?>" 
-        data-src="<?php echo $bc; ?>" 
-        seamless></iframe>
-      <p>
-        <span class="credit"><small>
-          <?php echo $row->credits; ?>
-        </small></span>
-      </p>
+        <iframe class="bandcamp"
+          src="<?php echo $bc; ?>" 
+          data-src="<?php echo $bc; ?>" 
+          seamless></iframe>
+        <p>
+          <span class="credit"><small>
+            <?php echo $row->credits; ?>
+          </small></span>
+        </p>
 
+      </div>
     </div>
 
 <?php

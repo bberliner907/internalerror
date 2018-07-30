@@ -48,6 +48,12 @@ if ($mysql_link) {
 <?php
 
   }
+  
+?>
+
+  <?php show_blurb("credits"); ?>
+	
+<?php
 
 }
 
