@@ -3,7 +3,7 @@
 
 if ($mysql_link) {
 
-  $result = query("SELECT * FROM albums ORDER BY position, date DESC");
+  $result = query("SELECT * FROM albums WHERE status='live' ORDER BY position, date DESC");
 
   while ($row = query_next($result)) {
     $row->formatted = date_text("M Y", $row->date);

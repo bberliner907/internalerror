@@ -13,7 +13,7 @@ if ($mysql_link) {
   
 <?php
 
-      $result = query("SELECT * FROM shows WHERE date < NOW() ORDER BY date DESC");
+      $result = query("SELECT * FROM shows WHERE date < NOW() AND status='live' ORDER BY date DESC");
 
       while ($row = query_next($result)) {
       
@@ -40,7 +40,7 @@ if ($mysql_link) {
   
 <?php
 
-    $result = query("SELECT * FROM shows WHERE date >= NOW() ORDER BY date DESC");
+    $result = query("SELECT * FROM shows WHERE date >= NOW() AND status='live' ORDER BY date DESC");
 
     if (query_rows($result)) {
       while ($row = query_next($result)) {

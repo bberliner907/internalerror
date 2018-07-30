@@ -3,7 +3,7 @@
 
 if ($mysql_link) {
 
-  $result = query("SELECT * FROM news ORDER BY date DESC");
+  $result = query("SELECT * FROM news WHERE status='live' ORDER BY date DESC");
 
   while ($row = query_next($result)) {
 

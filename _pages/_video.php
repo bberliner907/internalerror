@@ -5,7 +5,7 @@ if ($mysql_link) {
 
   $videos = array();
   
-  $result = query("SELECT * FROM videos ORDER BY date DESC, tag, id");
+  $result = query("SELECT * FROM videos WHERE status='live' ORDER BY date DESC, tag, id");
 
   while ($row = query_next($result)) {
     $videos[count($videos)] = $row;

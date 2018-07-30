@@ -17,9 +17,10 @@ if ($mysql_link) {
   
       $select = "SELECT DISTINCT " . implode(", ", $fields);
       $join = "FROM songs, albums WHERE songs.album=albums.key AND songs.lyrics IS NOT NULL";
+      $status = "AND songs.status='live' AND albums.status='live'";
       $order = "ORDER BY albums.position, songs.position, songs.title";
   
-      $sql = $select . " " . $join . " " . $order;
+      $sql = $select . " " . $join . " " . $status . " " . $order;
       $result = query($sql);
   
       while ($row = query_next($result)) {

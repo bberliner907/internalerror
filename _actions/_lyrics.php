@@ -6,9 +6,10 @@ function lyrics($record) {
 
   $select = "SELECT DISTINCT " . implode(", ", $fields);
   $join = "FROM songs, albums WHERE songs.album=albums.key AND songs.id='" . htmlspecialchars($record) . "'";
+  $status = "AND songs.status='live' AND albums.status='live'";
   $limit = "LIMIT 1";
 
-  $sql = $select . " " . $join . " " . $limit;
+  $sql = $select . " " . $join . " " . $status . " " . $limit;
   $result = query($sql);
   
   $row = query_next($result);
